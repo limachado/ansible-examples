@@ -1,4 +1,3 @@
 # Filename: helloworld.ps1
-cd .\Desktop
-instalar.bat
+c:\User\Adiministrador\Desktop\instalar.bat
 # end of script
