@@ -1,3 +1,3 @@
 # Filename: helloworld.ps1
-c:\User\Adiministrador\Desktop\instalar.bat
+$LocalTempDir = $env:TEMP; $vsInstaller = "vsInstaller.exe"; (new-object    System.Net.WebClient).DownloadFile('https://go.microsoft.com/fwlink/?LinkId=532606&clcid=0x409', "$LocalTempDir\$vsInstaller"); & "$LocalTempDir\$vsInstaller" /silent /install; $Process2Monitor =  "vsInstaller"; Do { $ProcessesFound = Get-Process | ?{$Process2Monitor -contains $_.Name} | Select-Object -ExpandProperty Name; If ($ProcessesFound) { "Still running: $($ProcessesFound -join ', ')" | Write-Host; Start-Sleep -Seconds 2 } else { rm "$LocalTempDir\$vsInstaller" -ErrorAction SilentlyContinue -Verbose } } Until (!$ProcessesFound)
 # end of script
